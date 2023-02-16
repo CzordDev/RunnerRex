@@ -1,0 +1,474 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://GUI/HUD/HUD.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/DynamicsFonts/standar font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Audio/Sounds/100 puntos.wav" type="AudioStream" id=4]
+[ext_resource path="res://GUI/HUD/title.png" type="Texture" id=5]
+[ext_resource path="res://GUI/HUD/Game Over.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=6]
+resource_name = "Mostrar titulo"
+length = 0.7
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("TitleContainer:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("TitleContainer:rect_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -108, -0.4, -61, 0.1, 49.8927, 243, -0.2, 251.458, 0.1, 0 ),
+"times": PoolRealArray( 0.2, 0.7 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CenterContainer/Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CenterContainer/Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("TitleContainer/Title:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("TitleContainer/GameOver:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Ocultar titulo"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("TitleContainer:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("TitleContainer:rect_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 243, -0.106939, -123.007, 0.2, 230.05, -108, -0.4, -60.9092, 0.0908219, 13.8297 ),
+"times": PoolRealArray( 0.1, 1 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CenterContainer/Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/Label:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer/Label:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TopContainer/ScoresContainer/ScoreLabel:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TopContainer/ScoresContainer/ScoreLabel:rect_pivot_offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 270, 18 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CenterContainer/Label:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("TitleContainer:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 243 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CenterContainer/Label:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "animar mensaje"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 1.1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "game over"
+length = 0.7
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("TitleContainer:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("TitleContainer:rect_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -108, -0.4, -61, 0.1, 49.8927, 243, -0.2, 251.458, 0.1, 0 ),
+"times": PoolRealArray( 0.2, 0.7 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CenterContainer/Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CenterContainer/Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("TitleContainer/Title:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("TitleContainer/GameOver:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "score_label_anim"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("TopContainer/ScoresContainer/ScoreLabel:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TopContainer/ScoresContainer/ScoreLabel:rect_pivot_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 125, 25 ), Vector2( 66.5, 12.5 ), Vector2( 125, 25 ), Vector2( 66.5, 12.5 ), Vector2( 125, 25 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+outline_size = 5
+outline_color = Color( 0.247059, 0.156863, 0.196078, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Mostrar titulo"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "Ocultar titulo"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "animar mensaje"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "game over"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id=15]
+"states/Mostrar titulo/node" = SubResource( 7 )
+"states/Mostrar titulo/position" = Vector2( 396.333, 76.3333 )
+"states/Ocultar titulo/node" = SubResource( 8 )
+"states/Ocultar titulo/position" = Vector2( 656.333, 76.3334 )
+"states/animar mensaje/node" = SubResource( 9 )
+"states/animar mensaje/position" = Vector2( 396.333, 221.666 )
+"states/game over/node" = SubResource( 18 )
+"states/game over/position" = Vector2( 656.333, 222.495 )
+transitions = [ "Mostrar titulo", "Ocultar titulo", SubResource( 10 ), "Mostrar titulo", "animar mensaje", SubResource( 11 ), "animar mensaje", "Ocultar titulo", SubResource( 14 ), "animar mensaje", "game over", SubResource( 19 ), "game over", "animar mensaje", SubResource( 20 ), "Ocultar titulo", "game over", SubResource( 21 ) ]
+start_node = "Mostrar titulo"
+graph_offset = Vector2( 0, 21.5147 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=16]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Mostrar titulo" = SubResource( 6 )
+"anims/Ocultar titulo" = SubResource( 5 )
+anims/RESET = SubResource( 2 )
+"anims/animar mensaje" = SubResource( 3 )
+"anims/game over" = SubResource( 17 )
+anims/score_label_anim = SubResource( 4 )
+
+[node name="TopContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 20.0
+margin_right = -10.0
+margin_bottom = 14.0
+
+[node name="ScoresContainer" type="HBoxContainer" parent="TopContainer"]
+margin_right = 1260.0
+margin_bottom = 25.0
+custom_constants/separation = 50
+alignment = 2
+
+[node name="HighScoreLabel" type="Label" parent="TopContainer/ScoresContainer"]
+margin_left = 885.0
+margin_right = 1085.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 90, 18 )
+size_flags_vertical = 5
+custom_fonts/font = ExtResource( 3 )
+text = "HI 00000"
+align = 2
+valign = 1
+
+[node name="ScoreLabel" type="Label" parent="TopContainer/ScoresContainer"]
+margin_left = 1135.0
+margin_right = 1260.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 270, 18 )
+size_flags_vertical = 5
+custom_fonts/font = ExtResource( 3 )
+text = "00000"
+align = 2
+valign = 1
+
+[node name="TitleContainer" type="CenterContainer" parent="."]
+margin_top = 243.0
+margin_right = 1280.0
+margin_bottom = 319.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Title" type="TextureRect" parent="TitleContainer"]
+margin_left = 312.0
+margin_right = 968.0
+margin_bottom = 76.0
+texture = ExtResource( 5 )
+
+[node name="GameOver" type="TextureRect" parent="TitleContainer"]
+visible = false
+margin_left = 346.0
+margin_right = 934.0
+margin_bottom = 76.0
+texture = ExtResource( 6 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+
+[node name="Label" type="Label" parent="CenterContainer"]
+margin_left = 350.0
+margin_right = 930.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 1 )
+text = "Pesiona espacio para jugar!!!"
+align = 1
+valign = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 15 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 16 )

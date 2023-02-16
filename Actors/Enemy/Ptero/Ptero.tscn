@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Actors/Enemy/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Actors/Enemy/Ptero/ptero sprite sheet.png" type="Texture" id=2]
+[ext_resource path="res://Actors/Enemy/Ptero/Ptero.gd" type="Script" id=3]
+[ext_resource path="res://Actors/Common/Sprites/Shadow.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 34, 16 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fly"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "Fly"
+
+[sub_resource type="AnimationNodeStateMachine" id=5]
+states/Fly/node = SubResource( 4 )
+states/Fly/position = Vector2( 345.667, 69.6667 )
+start_node = "Fly"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=6]
+
+[node name="Ptero" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 0, -14 )
+texture = ExtResource( 2 )
+hframes = 4
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, -16 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+anims/Fly = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="Shadow" type="Sprite" parent="." index="3"]
+z_index = -1
+texture = ExtResource( 4 )
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
+tree_root = SubResource( 5 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 6 )
